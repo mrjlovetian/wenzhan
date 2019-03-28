@@ -14,10 +14,10 @@ class MeiwenzhanSpider(scrapy.Spider):
     def parse(self, response):
         douyu_data = json.loads(response.body)['data']
         
-        author = pymysql.escape_string(ouyu_data['author'])
-        title = pymysql.escape_string(ouyu_data['title'])
-        digest = pymysql.escape_string(ouyu_data['digest'])
-        content = pymysql.escape_string(ouyu_data['content'])
+        author = pymysql.escape_string(douyu_data['author'])
+        title = pymysql.escape_string(douyu_data['title'])
+        digest = pymysql.escape_string(douyu_data['digest'])
+        content = pymysql.escape_string(douyu_data['content'])
         print('......................', author)
         print('......................', title)
         print('......................', digest)
