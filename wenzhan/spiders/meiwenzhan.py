@@ -18,7 +18,7 @@ class MeiwenzhanSpider(scrapy.Spider):
         print('asdasdasdsadasdasdasdas',response.status)
         if (response.status == 404):
             print('...........................',response.status, self.offsize)
-            return scrapy.Request(self.base_url + str(self.alldays[self.offsize]), callback=self.parse)
+            yield scrapy.Request(self.base_url + str(self.alldays[self.offsize]), callback=self.parse)
 
         douyu_data = json.loads(response.body)['data']
         if (len(douyu_data)>0):
