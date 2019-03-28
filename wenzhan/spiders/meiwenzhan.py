@@ -14,7 +14,8 @@ class MeiwenzhanSpider(scrapy.Spider):
     start_urls = [base_url]       
    
 
-    __init__:
+    def __init__(self):
+        
          alldays = self.get_nday_list(2000)
 
     def get_nday_list(n):
