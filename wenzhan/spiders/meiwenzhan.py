@@ -15,12 +15,12 @@ class MeiwenzhanSpider(scrapy.Spider):
    
 
     def __init__(self):
-        
-         alldays = self.get_nday_list(2000)
+         alldays = self.get_nday_list()
 
     def get_nday_list(n):
         before_n_days = []
-        for i in range(1, n + 1)[::-1]:
+        m = 200000
+        for i in range(1, m + 1)[::-1]:
             before_n_days.append((datetime.date.today() - datetime.timedelta(days=i)).strftime("%Y%m%d"))
         return before_n_days
 
