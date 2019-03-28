@@ -39,6 +39,5 @@ class MeiwenzhanSpider(scrapy.Spider):
             db.commit()
             db.close()
        
-        '+str(offsize)
         self.offsize += 1
         yield scrapy.Request(self.base_url +'?date='+ str(self.alldays[self.offsize]), callback=self.parse)
