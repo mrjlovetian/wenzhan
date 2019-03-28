@@ -16,6 +16,7 @@ class MeiwenzhanSpider(scrapy.Spider):
 
     def __init__(self):
          alldays = self.get_nday_list()
+		 print('nimade:')
 
     def get_nday_list(n):
         before_n_days = []
@@ -34,7 +35,7 @@ class MeiwenzhanSpider(scrapy.Spider):
         print('......................', author)
         print('......................', title)
         print('......................', digest)
-        print('......................', content)
+        print('......................', self.alldays)
         if (len(content) < 20000):
             db = pymysql.connect('localhost', 'root', '897011805', 'yhj')
             cursor = db.cursor()
