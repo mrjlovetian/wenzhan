@@ -6,5 +6,5 @@ def get_nday_list(n):
         before_n_days.append((datetime.date.today() - datetime.timedelta(days=i)).strftime("%Y%m%d"))
     return before_n_days
 
-a = get_nday_list(7)
+a = get_nday_list(2500)
 print(a)
