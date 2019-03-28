@@ -13,4 +13,5 @@ class MeiwenzhanSpider(scrapy.Spider):
     def parse(self, response):
         douyu_data = json.loads(response.body)['data']
         print('......................', douyu_data['title'])
-        yield scrapy.Request(self.base_url + str(offsize), callback=self.parse)
+        self.offsize += 1
+        yield scrapy.Request(self.base_url + str(self.offsize), callback=self.parse)
