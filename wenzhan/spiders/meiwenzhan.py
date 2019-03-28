@@ -21,8 +21,8 @@ class MeiwenzhanSpider(scrapy.Spider):
 
     def parse(self, response):
         douyu_data = json.loads(response.body)['data']
-        if (len(this.alldays) == 0):
-             this.alldays = this.get_nday_list(2000)
+        if (len(self.alldays) == 0):
+             this.alldays = self.get_nday_list(2000)
         author = pymysql.escape_string(douyu_data['author'])
         title = pymysql.escape_string(douyu_data['title'])
         digest = pymysql.escape_string(douyu_data['digest'])
