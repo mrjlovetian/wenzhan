@@ -14,9 +14,9 @@ class MeiwenzhanSpider(scrapy.Spider):
     start_urls = [base_url+alldays[0]]       
    
     def parse(self, response):
-         if response.status == 404:
-            self.offsize += 1
-            yield scrapy.Request(self.base_url + str(self.alldays[self.offsize]), callback=self.parse)
+        self.offsize += 1
+        if (response.status == 404):
+            return scrapy.Request(self.base_url + str(self.alldays[self.offsize]), callback=self.parse)
 
         douyu_data = json.loads(response.body)['data']
         if (len(douyu_data)>0):
@@ -32,8 +32,5 @@ class MeiwenzhanSpider(scrapy.Spider):
                 cursor.execute(sql)
                 db.commit()
                 db.close()
-        
-        
-       
-        self.offsize += 1
+
         yield scrapy.Request(self.base_url + str(self.alldays[self.offsize]), callback=self.parse)
