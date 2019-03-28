@@ -12,8 +12,11 @@ class MeiwenzhanSpider(scrapy.Spider):
     alldays = []
     base_url = 'https://interface.meiriyiwen.com/article/day'
     start_urls = [base_url]       
-    alldays = self.get_nday_list(2000)
-    
+   
+
+    __init__:
+         alldays = self.get_nday_list(2000)
+
     def get_nday_list(n):
         before_n_days = []
         for i in range(1, n + 1)[::-1]:
