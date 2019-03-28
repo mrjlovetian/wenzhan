@@ -15,6 +15,7 @@ class MeiwenzhanSpider(scrapy.Spider):
    
     def parse(self, response):
         self.offsize += 1
+        print('asdasdasdsadasdasdasdas',response.status)
         if (response.status == 404):
             return scrapy.Request(self.base_url + str(self.alldays[self.offsize]), callback=self.parse)
 
